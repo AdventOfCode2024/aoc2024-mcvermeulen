@@ -1,13 +1,15 @@
+using AdventOfCode.Common;
+
 namespace AdventOfCode.Day2;
 
-internal class solution_day2
+internal class Solution_day2
 {
     private readonly string[] input;
     private readonly int max_difference = 3;
 
-    public solution_day2()
+    public Solution_day2()
     {
-        input = ReadInputFile();
+        input = Utils.ReadInputFile("Day2/input.txt");
     }
 
     public int Part1()
@@ -42,13 +44,13 @@ internal class solution_day2
     {
         var direction = 0;
 
-        for (int i = 0; i < levels.Length -1; i++)
+        for (int i = 1; i < levels.Length; i++)
         {
-            if (levels[i] == levels[i + 1]) return 0;
+            if (levels[i] == levels[i - 1]) return 0;
 
-            if (Math.Abs(levels[i] - levels[i + 1]) > max_difference) return 0;
+            if (Math.Abs(levels[i] - levels[i - 1]) > max_difference) return 0;
 
-            direction += (levels[i] > levels[i + 1]) ? -1 : 1;        
+            direction += (levels[i] > levels[i - 1]) ? 1 : -1;        
         }
 
         return (Math.Abs(direction) < levels.Length - 1) ? 0 : 1;
@@ -64,15 +66,10 @@ internal class solution_day2
         return 0;
     }
 
-    private int[] RemoveAt(int[] levels, int index)
+    private static int[] RemoveAt(int[] levels, int index)
     {
         var list = levels.ToList();
         list.RemoveAt(index);
         return [.. list];
-    }
-
-    private string[] ReadInputFile()
-    {
-        return File.ReadAllLines("Day2/input.txt");
     }
 }

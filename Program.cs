@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using AdventOfCode.Day1;
+using AdventOfCode.Day2;
 
-var day1 = new solution_day1();   
+var solution = new solution_day2();   
 
-Console.WriteLine($"Part1: {day1.Part1()}");
-Console.WriteLine($"Part2: {day1.Part2()}");
+Console.WriteLine($"Part1: {solution.Part1()}");
+Console.WriteLine($"Part2: {solution.Part2()}");

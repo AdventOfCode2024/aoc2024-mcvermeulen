@@ -1,6 +1,3 @@
-using System.ComponentModel;
-using System.Data;
-using System.Runtime.ExceptionServices;
 using AdventOfCode.Common;
 
 namespace AdventOfCode.Day4;
